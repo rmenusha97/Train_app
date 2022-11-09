@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { View, SafeAreaView, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity, } from 'react-native'
-
+import { View, SafeAreaView, Text, StyleSheet, ScrollView,Alert, TextInput, TouchableOpacity, } from 'react-native'
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import firestore from '@react-native-firebase/firestore'; 
 
 
@@ -52,7 +52,7 @@ const BookingPayment = () => {
                     <View>
                         {/* Train Detail */}
                         <View style={{ marginTop: 35, marginBottom: 15, marginLeft: 'auto', marginRight: 'auto', flexDirection: 'column', justifyContent: 'space-between', width: '90%', padding: 5, backgroundColor: '#3e2387' }}>
-                            <Text style={{ marginLeft: 'auto', marginRight: 'auto', fontSize: 45, fontWeight: 'bold', textAlign: 'center', color: "#FFF", }}>Grab & Pay for your Seat </Text>
+                            <Text style={{ marginLeft: 'auto', marginRight: 'auto', fontSize: 45, fontWeight: 'bold', textAlign: 'center', color: "#FFF", }}> Pay for your Seat! </Text>
                         </View>
                     </View>
                 </SafeAreaView>
@@ -65,25 +65,25 @@ const BookingPayment = () => {
                     <ScrollView>
 
 
+                      
                         <View style={styles.formInput}>
-                            <TextInput style={styles.numberInput} placeholder="Enter Your Seat Number: " keyboardType="numeric" />
+                       
+                            <TextInput style={styles.textInput} placeholder="Cardholder Name" placeholderTextColor="#000"/>
+                            
                         </View>
                         <View style={styles.formInput}>
-                            <TextInput style={styles.textInput} placeholder="Cardholder Name:" />
-                        </View>
-                        <View style={styles.formInput}>
-                            <TextInput style={styles.textInput} placeholder="Email Address:" />
-                        </View>
-
-                        <View style={styles.formInput}>
-                            <TextInput style={styles.textInput} placeholder="Card Number: " keyboardType="numeric" />
-                        </View>
-                        <View style={styles.formInput}>
-                            <TextInput style={styles.textInput} placeholder="Expiration Date: " keyboardType="numeric" />
+                            <TextInput style={styles.textInput} placeholder="Email Address" placeholderTextColor="#000" />
                         </View>
 
                         <View style={styles.formInput}>
-                            <TextInput style={styles.textInput} placeholder="Security Code: " keyboardType="numeric" />
+                            <TextInput  style={styles.textInput} placeholder="Card Number " keyboardType="numeric" placeholderTextColor="#000"/>
+                        </View>
+                        <View style={styles.formInput}>
+                            <TextInput style={styles.textInput} placeholder="Expiration Date" keyboardType="numeric" placeholderTextColor="#000"/>
+                        </View>
+
+                        <View style={styles.formInput}>
+                            <TextInput style={styles.textInput} placeholder="Security Code" keyboardType="numeric" placeholderTextColor="#000"/>
                         </View>
 
 
@@ -92,8 +92,9 @@ const BookingPayment = () => {
 
                     </ScrollView>
                     <View style={{ marginTop: 24, marginBottom: 24, alignItems: 'center', }}>
-                        <TouchableOpacity style={styles.defaultButton} onPress={() => {pay(); navigation.navigate("BookingPayment") }}>
+                        <TouchableOpacity style={styles.defaultButton} onPress={() => {pay();  Alert.alert('Payment Successfully') }}>
                             <Text style={{ color: "#ffffff", fontWeight: 'bold', textAlign: 'center', fontSize: 18, fontWeight: 'bold' }}>Pay Now</Text>
+                            
                             <Text style={{ color: "#ffffff", fontWeight: 'bold', textAlign: 'center', fontSize: 11, fontWeight: 'bold', marginBottom: 10 }}>Rs. {data["num"] * global.data["firstClass"]["price"]}</Text>
                         </TouchableOpacity>
 
@@ -185,6 +186,7 @@ const styles = StyleSheet.create({
         elevation: 20,
 
     },
+    
 
 
 });

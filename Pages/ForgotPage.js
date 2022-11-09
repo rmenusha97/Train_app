@@ -24,7 +24,7 @@ const ForgotPage= ()=>{
                 
 
                 <View style={styles.formInput}>
-                    <TextInput style={styles.textInput} placeholder="Your Email Adddress"/> 
+                    <TextInput style={styles.textInput} placeholder="Your Email Adddress" placeholderTextColor="#000" /> 
                 </View>
 
                 

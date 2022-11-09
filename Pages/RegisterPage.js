@@ -47,23 +47,25 @@ const RegisterPage = () => {
                     </View>
 
                     <View style={styles.formInput}>
-                        <TextInput style={styles.textInput} value={enteredFirstName} onChangeText={text => setEnteredFirstName(text)} placeholder="Your First Name" />
+                        <TextInput style={styles.textInput} value={enteredFirstName} onChangeText={text => setEnteredFirstName(text)} placeholder="Your First Name" placeholderTextColor="#000"  />
                     </View>
 
                     <View style={styles.formInput}>
-                        <TextInput style={styles.textInput} value={enteredLastName} onChangeText={text => setEnteredLastName(text)} placeholder="Your Last Name" />
+                        <TextInput style={styles.textInput} value={enteredLastName} onChangeText={text => setEnteredLastName(text)} placeholder="Your Last Name" placeholderTextColor="#000" />
                     </View>
 
                     <View style={styles.formInput}>
-                        <TextInput style={styles.textInput} value={enteredEmail} onChangeText={text => setEnteredemail(text)} placeholder="Your Email Address" />
+                        <TextInput style={styles.textInput} value={enteredEmail} onChangeText={text => setEnteredemail(text)} placeholder="Your Email Address" placeholderTextColor="#000"  />
+                    </View>
+
+                   
+
+                    <View style={styles.formInput}>
+                        <TextInput style={styles.textInput}  value={enteredPhoneNumber} onChangeText={text => setEnteredphonenumber(text)} placeholder="Mobile Number"   placeholderTextColor="#000" keyboardType="numeric" />
                     </View>
 
                     <View style={styles.formInput}>
-                        <TextInput style={styles.textInput}  value={enteredPhoneNumber} onChangeText={text => setEnteredphonenumber(text)} placeholder="Mobile Number" secureTextEntry={true} />
-                    </View>
-
-                    <View style={styles.formInput}>
-                        <TextInput style={styles.textInput}  value={enteredPassword} onChangeText={text => setEnteredpassword(text)} placeholder="Password" secureTextEntry={true} />
+                        <TextInput style={styles.textInput}  value={enteredPassword} onChangeText={text => setEnteredpassword(text)} placeholder="Password" secureTextEntry={true}  placeholderTextColor="#000"  />
                     </View>
 
                     <View style={styles.formInput}>
@@ -110,6 +112,8 @@ const styles = StyleSheet.create({
     formInput: {
         marginTop: 10,
         padding: 5,
+        
+       
 
 
     },
@@ -119,6 +123,10 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: "a7a7a7a",
         borderRadius: 10,
+       
+        
+        
+       
     },
     defaultButton: {
         padding: 15,

@@ -30,17 +30,18 @@ const BookingPage = () => {
                         <View style={{ marginTop: 15, marginBottom: 5, marginLeft: 'auto', marginRight: 'auto', flexDirection: 'column', justifyContent: 'space-between', width: '90%', padding: 5, backgroundColor: '#3e2387' }}>
                             <Text style={{ marginLeft: 'auto', marginRight: 'auto', fontSize: 25, fontWeight: 'bold', textAlign: 'center', color: "#FFF", }}>{global.data['title']}</Text>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 3 }}>
-                                <Text style={{ marginTop: 'auto', marginBottom: 'auto', fontSize: 20, fontWeight: 'bold', color: "#FFF", marginLeft: 10 }}>ArrivalTime</Text>
+                                <Text style={{ marginTop: 'auto', marginBottom: 'auto', fontSize: 20, fontWeight: 'bold', color: "#FFF", marginLeft: 10 }}>Ticket Price</Text>
                                 <Icon name="train" size={50} color="#FFFFFF" />
-                                <Text style={{ marginTop: 'auto', marginBottom: 'auto', fontSize: 20, fontWeight: 'bold', color: "#FFF", }}>DepartureTime</Text>
+                                <Text style={{ marginTop: 'auto', marginBottom: 'auto', fontSize: 20, fontWeight: 'bold', color: "#FFF", }}>Available Seats</Text>
                             </View>
-                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 1, paddingLeft: 30, paddingRight: 30 }}>
-                                <Text style={{ fontSize: 20, color: "#FFFFFF" }}>{global.data['startTime']}</Text>
-                                <Text style={{ fontSize: 20, color: "#FFFFFF" }}>{global.data['endTime']}</Text>
+                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 1, paddingLeft: 20, paddingRight: 20 }}>
+                                <Text style={{ fontSize: 20, color: "#FFFFFF" }}>Rs.<Text style={{ fontSize: 20, color: "#FFFFFF" }}>{global.data['firstClass']['price']  }<Text style={{ fontSize: 20, color: "#FFFFFF" }}>/-</Text></Text></Text>
+                                <Text style={{ fontSize: 20, color: "#FFFFFF" }}>{global.data['firstClass']['seats'] - global.data['bookedSeatsFirstClass']}</Text>
                             </View>
                         </View>
                         {/* Seats */}
                     </View>
+
 
                     <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 5, marginBottom: 15 }}>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -60,6 +61,7 @@ const BookingPage = () => {
             </View>
 
             <View style={{ flex: 1, backgroundColor: '#3e2387', marginTop: 30 }}>
+                <Text style={{ marginLeft: 'auto', marginRight: 'auto', fontSize: 25, fontWeight: 'bold', textAlign: 'center', color: "#FFF", }}>First Class</Text>
                 <SafeAreaView >
 
 
@@ -339,7 +341,7 @@ const BookingPage = () => {
                     </View>
 
                     <View style={styles.formInput}>
-                        <TextInput value={enteredNumber} onChangeText={text => setEnteredNumber(text)} style={styles.textInput} placeholder="Enter Your Seat Count" />
+                        <TextInput value={enteredNumber} onChangeText={text => setEnteredNumber(text)} style={styles.textInput} placeholder="Enter Your Seat Count" keyboardType="numeric" />
                     </View>
 
 
@@ -380,7 +382,7 @@ const styles = StyleSheet.create({
         padding: 10,
         fontSize: 16,
         borderWidth: 1,
-        borderColor: "a7a7a7a",
+        borderColor: "#FFFFFF",
         borderRadius: 10,
     },
     defaultButton: {

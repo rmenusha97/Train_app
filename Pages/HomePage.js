@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { View, SafeAreaView, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity, Image } from 'react-native'
+import { View, SafeAreaView, Text, StyleSheet, ScrollView, TextInput, Alert, TouchableOpacity, Image } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import firestore from '@react-native-firebase/firestore';
@@ -52,7 +52,7 @@ const HomePage = () => {
                             <Icon name="menu" size={40} color="#a2a2db" style={{ width: 27, marginLeft: 17 }} />
                         </TouchableOpacity>
 
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => { Alert.alert('Profile Pic Not Include') }}>
                             <Icon name="account-circle" size={55} color="#a2a2db" style={{ marginLeft: 235 }} />
                         </TouchableOpacity>
                     </View>
@@ -60,18 +60,23 @@ const HomePage = () => {
                     <TouchableOpacity>
                         <View
                             style={{
+                                borderColor: "#fff" ,
+                                fontWeight: 'bold',
                                 flexDirection: "row",
-                                backgroundColor: "#fff",
-                                borderRadius: 40,
+                                backgroundColor: "#ff",
+                                borderRadius: 50,
                                 alignItems: "center",
                                 paddingVertical: 10,
                                 paddingHorizontal: 30,
                                 marginTop: 30,
                                 marginBottom: 30,
+                                fontWeight: 'bold',
+                              
+
                                 //marginBottom:40,
                             }}>
                             <Icon name="search" size={33} color="#a2a2db" style={{ marginLeft: 0 }} />
-                            <TextInput placeholder="    Find Your Train Here." style={{ fontSize: 15, }} />
+                            <TextInput placeholder=" Find Your Train Here." placeholderTextColor="#fff" style={{ fontSize: 18, }} />
                         </View >
                     </TouchableOpacity>
 
@@ -79,7 +84,7 @@ const HomePage = () => {
                         horizontal
                         showsHorizontalScrollIndicator={false}
                         style={{ marginRight: 0, margiTop: 30 }}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => { Alert.alert('Train List') }}>
                             <View
                                 style={{
                                     width: 66,
@@ -93,7 +98,7 @@ const HomePage = () => {
                                 <Icon name="train" size={35} color="#FFFFFF" />
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => { Alert.alert('No any Message Available') }}>
                             <View style={{
                                 width: 66,
                                 marginLeft: 30,
@@ -201,7 +206,7 @@ const HomePage = () => {
                                             {i['startPoint']} - {i["endPoint"]}
                                         </Text>
                                     </View>
-                                    <TouchableOpacity onPress={() => {global.data=i; navigation.navigate("BookingPageSelection") }}>
+                                    <TouchableOpacity onPress={() => { global.data = i; navigation.navigate("BookingPageSelection") }}>
                                         <Image source={require('../assets/chair.png')} style={{ width: 40, height: 40, borderRadius: 10, }} />
                                     </TouchableOpacity>
                                 </View>
@@ -230,11 +235,18 @@ const styles = StyleSheet.create({
     },
 
     textInput: {
+
+        marginTop: 15,
+
         padding: 10,
         fontSize: 16,
         borderWidth: 1,
-        borderColor: "a7a7a7a",
+        borderColor: "#ffffff",
         borderRadius: 10,
+        fontWeight: 'bold',
+        color: "black",
+        backgroundColor: 'black',
+
     },
     defaultButton: {
         padding: 15,

@@ -16,7 +16,9 @@ const BookingPage = () => {
     return (
         <View style={{ flex: 1, backgroundColor: '#3e2387', }}>
             <View >
-                <Text style={{ fontSize: 46, padding: 10, fontWeight: 'bold', textAlign: 'center', color: "#ffffff", marginTop: 2 }}>Select Your Class Here!</Text>
+                <Text style={{ marginLeft: 'auto', marginRight: 'auto', fontSize: 45, fontWeight: 'bold',marginTop:30, textAlign: 'center', color: "#FFF", }}>{global.data['title' ]}
+                <Text style={{ marginLeft: 'auto', marginRight: 'auto', fontSize: 45, fontWeight: 'bold',marginTop:30, textAlign: 'center', color: "#FFF", }}> Train</Text></Text>
+                <Text style={{ fontSize: 40, padding: 10, fontWeight: 'italic', textAlign: 'center', color: "#ffffff", marginTop: 2 }}>Select Your Class Here!</Text>
             </View>
             <View style={{ alignItems: 'center', marginTop: 30, }}>
                 <TouchableOpacity style={styles.defaultButton} onPress={() => {
@@ -31,10 +33,19 @@ const BookingPage = () => {
                     <Text style={{ color: "#ffffff", fontWeight: 'bold', textAlign: 'center', fontSize: 20, fontWeight: 'bold', }}>First Class</Text>
                 </TouchableOpacity>
             </View>
-            <View style={{ alignItems: 'center', marginTop: 30, marginBottom: 50 }}>
+            <View style={{ alignItems: 'center', marginTop: 30, marginBottom: 10 }}>
                 <TouchableOpacity style={styles.defaultButton} onPress={() => { if (global.data["bookedSeatsSecondClass"] < global.data["secondClass"]["seats"]) { navigation.navigate("SecondClass") } else { } }}>
                     <Text style={{ color: "#ffffff", fontWeight: 'bold', textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}>Second Class</Text>
                 </TouchableOpacity>
+                
+            </View>
+            <View>
+            <Text style={{ marginTop:30, fontSize: 30, fontWeight: 'bold', color: "#FFF", marginLeft: 5 }}>ArrivalTime :-   
+            <Text style={{ fontSize: 25, color: "#FFFFFF" }}>{global.data[ 'startTime']}</Text></Text>
+            </View>
+            <View>
+            <Text style={{ marginTop:30, fontSize: 30, fontWeight: 'bold', color: "#FFF", marginLeft: 5  }}>DepartureTime:-
+            <Text style={{ fontSize: 25, color: "#FFFFFF" }}>{global.data[ 'endTime']}</Text></Text>
             </View>
         </View>
 
